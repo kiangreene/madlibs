@@ -11,7 +11,7 @@ ui <- fluidPage(
   titlePanel("Mad Libs Game"),
   sidebarLayout(
     sidebarPanel(
-      cat("create side bar 🧠"),
+      cat("create side bar 🧠", file=stderr()),
       textInput("noun1", "Enter a noun:", ""),
       textInput("verb", "Enter a verb:", ""),
       textInput("adjective", "Enter an adjective:", ""),
@@ -26,7 +26,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output) {
-  cat("generating story 📚")
+  cat("generating story 📚", file=stderr())
 
   story <- eventReactive(input$submit, {
     generate_story(input$noun1, input$verb, input$adjective, input$adverb)
